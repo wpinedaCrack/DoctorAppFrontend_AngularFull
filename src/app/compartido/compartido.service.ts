@@ -18,6 +18,7 @@ export class CompartidoService {
   }
 
   guardarSersion(sesion: Sesion){
+    console.log("Miremos la sesion "+JSON.stringify(sesion));
     localStorage.setItem("usuarioSesion",JSON.stringify(sesion));
   }
 

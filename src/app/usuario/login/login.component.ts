@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { UsuarioService } from '../../usuario/servicios/usuario.service';
 import { CompartidoService } from '../../compartido/compartido.service';
 import { Login } from '../../usuario/interfaces/Login';
@@ -14,7 +14,7 @@ import { response } from 'express';
 export class LoginComponent implements OnInit {
 
   formLogin: FormGroup;
-  ocultarPassworld: boolean=false;
+  ocultarPassword: boolean=false;
   mostrarLoading: boolean=false;
 
   constructor(private fb: FormBuilder,
@@ -24,27 +24,29 @@ export class LoginComponent implements OnInit {
   {
     this.formLogin =  this.fb.group({
       username: ['', Validators.required],
-      passwold: ['', Validators.required]
+      password: ['', Validators.required]
     });
   }
 
-  iniciarSesion(){
+  iniciarSesion() {
     this.mostrarLoading = true;
-    const request: Login={
+    const request: Login = {
       username: this.formLogin.value.username,
       password: this.formLogin.value.password
     };
-
+  
     this.usuarioServicio.iniciarSesion(request).subscribe({
-      next: (response)=>{
-        this.compartidoService.guardarSersion(response);
+      next: (response) => {
+        // Procesa la respuesta si es correcta
+        this.compartidoService.guardarSersion(response); 
         this.router.navigate(['layout']);
       },
-      complete:()=>{
+      error: (error) => {
+        console.error("Error al iniciar sesión: ", error);
+        this.compartidoService.mostrarAlerta(error.error, 'Error!');
         this.mostrarLoading = false;
       },
-      error:(error)=>{
-        this.compartidoService.mostrarAlerta(error.error,'Error!');
+      complete: () => {
         this.mostrarLoading = false;
       }
     });

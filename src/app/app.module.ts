@@ -8,10 +8,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // Importar HttpClientModule
 import { UsuarioModule } from './usuario/usuario.module';
+// import { LoginComponent } from './usuario/login/login.component'; // Asegúrate de ajustar la ruta según tu estructura
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent//,LoginComponent
   ],
   imports: [
     BrowserModule,

@@ -9,13 +9,12 @@ import { environment } from '../../../environments/environment';
   providedIn: 'root'
 })
 export class UsuarioService {
-  baseUrl: string = environment.production + "usuario/";
+  baseUrl:string = environment.apiUrl + "Usuario/"; 
 
   constructor(private http: HttpClient) { }
 
   iniciarSesion(request: Login): Observable<Sesion> {
-    // Corregido: usar comillas invertidas (``) para template literals
+    console.log("Request enviado: ", request);
     return this.http.post<Sesion>(`${this.baseUrl}login`, request);
   }
 }
-

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { MaterialModule } from '../material/material.module';  //casi mitad del curso
+import { ReactiveFormsModule } from '@angular/forms'; // Asegúrate de importar esto
 
 @NgModule({
   declarations: [
@@ -9,6 +10,7 @@ import { MaterialModule } from '../material/material.module';  //casi mitad del 
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule, // Aquí se añade el módulo de formularios reactivos
     MaterialModule
   ],
   exports:[

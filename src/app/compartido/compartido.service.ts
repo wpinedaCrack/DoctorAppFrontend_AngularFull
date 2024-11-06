@@ -28,7 +28,7 @@ export class CompartidoService {
    return usuarioToken;
   }
 
-  eliminarSersion(){
+  eliminarSesion(){
     localStorage.removeItem("usuarioSesion");
    }
 }

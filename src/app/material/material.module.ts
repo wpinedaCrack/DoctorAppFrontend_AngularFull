@@ -20,7 +20,10 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule
+    CommonModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatIconModule
   ],
   exports: [
     MatCardModule,

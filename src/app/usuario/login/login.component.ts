@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['layout']);
       },
       error: (error) => {
-        console.error("Error al iniciar sesión: ", error);
+        //console.error("Error al iniciar sesión: ", error);
         this.compartidoService.mostrarAlerta(error.error, 'Error!');
         this.mostrarLoading = false;
       },

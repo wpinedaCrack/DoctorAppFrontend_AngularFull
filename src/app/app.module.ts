@@ -9,6 +9,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // Importar HttpClientModule
 import { UsuarioModule } from './usuario/usuario.module';
 // import { LoginComponent } from './usuario/login/login.component'; // Asegúrate de ajustar la ruta según tu estructura
+import { CompartidoModule } from './compartido/compartido.module'; // Importa CompartidoModule
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { UsuarioModule } from './usuario/usuario.module';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule, // Agregar HttpClientModule aquí
-    UsuarioModule
+    UsuarioModule,
+    CompartidoModule
   ],
   providers: [
     provideClientHydration(),
